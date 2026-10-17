@@ -1,0 +1,327 @@
+/* Dev-Detective - simple CSS */
+ 
+/* Colors used:
+   background  #14171c
+   card        #1d222a
+   border      #2e3540
+   text        #e8e6e1
+   grey text   #9aa3ae
+   yellow      #e3b341
+   green       #3fb950
+   red         #f85149
+*/
+ 
+/* ---------- Basic setup ---------- */
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  margin: 0;
+  background: #14171c;
+  color: #e8e6e1;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+ 
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+ 
+/* ---------- Heading ---------- */
+.top {
+  margin-bottom: 24px;
+}
+ 
+h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #e3b341;
+}
+ 
+.sub {
+  margin: 4px 0 16px 0;
+  color: #9aa3ae;
+}
+ 
+/* Hidden text only for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+ 
+/* hidden attribute should always hide the element */
+[hidden] {
+  display: none !important;
+}
+ 
+/* ---------- Search form ---------- */
+.search {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+ 
+.search input {
+  flex: 1 1 200px;
+  padding: 12px;
+  font-size: 16px;
+  background: #1d222a;
+  color: #e8e6e1;
+  border: 1px solid #2e3540;
+  border-radius: 10px;
+}
+ 
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #e3b341;
+  color: #1a1405;
+  border: none;
+  border-radius: 10px;
+}
+ 
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+ 
+/* Battle Mode toggle button */
+button.ghost {
+  background: transparent;
+  color: #e8e6e1;
+  border: 1px solid #2e3540;
+  padding: 8px 14px;
+  font-weight: normal;
+}
+ 
+button.ghost[aria-pressed="true"] {
+  border-color: #e3b341;
+  color: #e3b341;
+}
+ 
+/* outline when using keyboard */
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #e3b341;
+  outline-offset: 2px;
+}
+ 
+.vs {
+  color: #9aa3ae;
+  font-weight: bold;
+}
+ 
+/* ---------- Output area ---------- */
+.output {
+  margin-top: 28px;
+}
+ 
+.card {
+  background: #1d222a;
+  border: 1px solid #2e3540;
+  border-radius: 10px;
+  padding: 20px;
+}
+ 
+/* ---------- Profile card ---------- */
+.profile {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+ 
+.profile img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  border: 2px solid #2e3540;
+  flex: none;
+}
+ 
+.profile h2 {
+  margin: 0;
+  font-size: 22px;
+}
+ 
+.login {
+  color: #9aa3ae;
+  margin: 0 0 8px 0;
+}
+ 
+.meta {
+  color: #9aa3ae;
+  font-size: 14px;
+  margin: 2px 0;
+}
+ 
+a {
+  color: #e3b341;
+}
+ 
+/* ---------- Repositories list ---------- */
+.repos {
+  margin-top: 16px;
+}
+ 
+.repos h3 {
+  margin: 0 0 10px 0;
+  font-size: 17px;
+}
+ 
+.repos ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+ 
+.repos li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  border: 1px solid #2e3540;
+  border-radius: 8px;
+}
+ 
+.repos .info {
+  color: #9aa3ae;
+  font-size: 14px;
+}
+ 
+/* ---------- Loading and error messages ---------- */
+.message {
+  text-align: center;
+  padding: 32px 16px;
+}
+ 
+.message.error {
+  border-color: #f85149;
+}
+ 
+.message h2 {
+  margin: 0 0 6px 0;
+}
+ 
+.message p {
+  margin: 0;
+  color: #9aa3ae;
+}
+ 
+/* Loading spinner */
+.spinner {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 12px auto;
+  border: 4px solid #2e3540;
+  border-top-color: #e3b341;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+ 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+ 
+/* ---------- Battle Mode ---------- */
+.arena {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+ 
+.fighter {
+  border-width: 2px;
+  text-align: center;
+}
+ 
+.fighter.winner {
+  border-color: #3fb950;
+}
+ 
+.fighter.loser {
+  border-color: #f85149;
+}
+ 
+.fighter.tie {
+  border-color: #9aa3ae;
+}
+ 
+.fighter img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+ 
+.fighter h2 {
+  margin: 8px 0 0 0;
+  font-size: 19px;
+}
+ 
+.badge {
+  display: inline-block;
+  margin: 8px 0;
+  padding: 2px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #0d1117;
+}
+ 
+.winner .badge {
+  background: #3fb950;
+}
+ 
+.loser .badge {
+  background: #f85149;
+}
+ 
+.tie .badge {
+  background: #9aa3ae;
+}
+ 
+.stars {
+  font-size: 29px;
+  font-weight: bold;
+  margin: 4px 0;
+}
+ 
+.banner {
+  text-align: center;
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+ 
+/* ---------- Mobile screens ---------- */
+@media (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+ 
+  .arena {
+    grid-template-columns: 1fr;
+  }
+ 
+  .repos li {
+    flex-direction: column;
+  }
+}
+ 

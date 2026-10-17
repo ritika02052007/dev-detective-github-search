@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dev-Detective | GitHub Profile Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <h1>Dev-Detective</h1>
+      <p class="sub">Look up any GitHub developer by username.</p>
+      <button id="modeToggle" class="ghost" type="button" aria-pressed="false">Battle Mode: off</button>
+    </header>
+
+    <!-- Single search -->
+    <form id="searchForm" class="search" novalidate>
+      <label for="username" class="sr-only">GitHub username</label>
+      <input id="username" type="text" placeholder="Try octocat" autocomplete="off" spellcheck="false">
+      <button type="submit" id="searchBtn">Search</button>
+    </form>
+
+    <!-- Battle search -->
+    <form id="battleForm" class="search battle" hidden novalidate>
+      <label for="user1" class="sr-only">First username</label>
+      <input id="user1" type="text" placeholder="First username" autocomplete="off" spellcheck="false">
+      <span class="vs" aria-hidden="true">vs</span>
+      <label for="user2" class="sr-only">Second username</label>
+      <input id="user2" type="text" placeholder="Second username" autocomplete="off" spellcheck="false">
+      <button type="submit" id="battleBtn">Fight</button>
+    </form>
+
+    <!-- Screen-reader announcements -->
+    <div id="status" class="sr-only" aria-live="polite"></div>
+
+    <section id="output" class="output"></section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
